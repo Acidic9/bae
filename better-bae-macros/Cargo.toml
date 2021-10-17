@@ -12,7 +12,7 @@ license = "MIT"
 name = "better-bae-macros"
 readme = "README.md"
 repository = "https://github.com/Acidic9/bae.git"
-version = "0.1.7"
+version = "0.1.8"
 
 [dependencies]
 syn = { version = "1", features = ["full", "extra-traits"] }

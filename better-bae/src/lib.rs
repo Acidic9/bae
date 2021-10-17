@@ -1,9 +1,11 @@
-//! `bae` is a crate for proc macro authors, which simplifies parsing of attributes. It is
+//! This crate is a fork of [`bae`](https://docs.rs/bae).
+//!
+//! `better-bae` is a crate for proc macro authors, which simplifies parsing of attributes. It is
 //! heavily inspired by [`darling`](https://crates.io/crates/darling) but has a significantly
 //! simpler API.
 //!
 //! ```rust
-//! use bae::FromAttributes;
+//! use better_bae::FromAttributes;
 //!
 //! #[derive(
 //!     Debug,

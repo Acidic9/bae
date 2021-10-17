@@ -70,7 +70,7 @@ impl FromAttributes {
         let attr_name = self.attr_name().value();
 
         let code = quote! {
-            impl ::bae::TryFromAttributes for #struct_name {
+            impl ::better_bae::TryFromAttributes for #struct_name {
                 fn attr_name() -> &'static str {
                     #attr_name
                 }
