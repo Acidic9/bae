@@ -91,7 +91,7 @@
 //! # }
 //! ```
 
-pub use bae_macros::FromAttributes;
+pub use better_bae_macros::FromAttributes;
 
 pub trait TryFromAttributes
 where
