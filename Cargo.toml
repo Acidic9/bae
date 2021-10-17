@@ -1,2 +1,2 @@
 [workspace]
-members = ["bae", "bae-macros"]
+members = ["better-bae", "better-bae-macros"]
