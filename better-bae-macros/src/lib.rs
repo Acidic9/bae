@@ -9,7 +9,7 @@
 
 extern crate proc_macro;
 
-use heck::SnakeCase;
+use heck::ToSnakeCase;
 use proc_macro2::TokenStream;
 use proc_macro_error::*;
 use quote::*;
@@ -151,16 +151,6 @@ impl FromAttributes {
             quote! { #field_name, }
         });
 
-        let mut supported_args = self
-            .item
-            .fields
-            .iter()
-            .map(|field| get_field_name(field))
-            .map(|field_name| format!("`{}`", field_name))
-            .collect::<Vec<_>>();
-        supported_args.sort_unstable();
-        let supported_args = supported_args.join(", ");
-
         let code = quote! {
             impl syn::parse::Parse for #struct_name {
                 #[allow(unreachable_code, unused_imports, unused_variables)]
@@ -175,18 +165,8 @@ impl FromAttributes {
 
                         match &*bae_attr_ident.to_string() {
                             #(#match_arms)*
-                            other => {
-                                return syn::Result::Err(
-                                    syn::Error::new(
-                                        bae_attr_ident.span(),
-                                        &format!(
-                                            "`#[{}]` got unknown `{}` argument. Supported arguments are {}",
-                                            #attr_name,
-                                            other,
-                                            #supported_args,
-                                        ),
-                                    )
-                                );
+                            _ => {
+                                content.parse::<proc_macro2::TokenStream>()?;
                             }
                         }
 
