@@ -15,6 +15,6 @@ repository = "https://github.com/Acidic9/bae.git"
 version = "0.1.9"
 
 [dependencies]
-better-bae-macros = { path = "../better-bae-macros", version = "0.1.8" }
+better-bae-macros = { path = "../better-bae-macros", version = "0.1.9" }
 syn = { version = "1", features = ["full", "extra-traits"] }
 proc-macro2 = "1"
